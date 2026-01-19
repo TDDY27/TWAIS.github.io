@@ -1,0 +1,70 @@
+---
+// Services component - Process/services section with numbered items
+const services = [
+  {
+    number: "01",
+    title: "Concept & Vision",
+    description: "We begin by understanding your aspirations and the unique character of your site. Through dialogue and research, we develop a conceptual framework that guides the entire project.",
+  },
+  {
+    number: "02",
+    title: "Design Development",
+    description: "Ideas take form through sketches, models, and drawings. We refine every detail, balancing aesthetics with functionality, ensuring the design aligns with your vision and budget.",
+  },
+  {
+    number: "03",
+    title: "Technical Documentation",
+    description: "Precision matters. We produce comprehensive technical drawings and specifications that translate design intent into buildable reality, coordinating with engineers and consultants.",
+  },
+  {
+    number: "04",
+    title: "Realization & Support",
+    description: "From groundbreaking to completion, we oversee the construction process, ensuring quality and fidelity to the design. We're partners throughout the journey.",
+  },
+];
+---
+
+<section class="services-section bg-charcoal py-20 text-cream md:py-32">
+  <div class="container mx-auto px-6">
+    <!-- Section Header -->
+    <div class="mb-16 md:mb-24">
+      <h2 class="fade-up mb-6 font-serif text-5xl font-bold leading-tight md:text-6xl">
+        Our Process
+      </h2>
+      <p class="fade-up max-w-2xl text-lg text-cream/80">
+        A thoughtful approach to creating exceptional spaces, from initial concept to final realization.
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid gap-12 md:grid-cols-2 lg:gap-16">
+      {services.map((service) => (
+        <div class="service-item fade-up group">
+          <div class="mb-4 flex items-start gap-6">
+            <span class="font-serif text-6xl font-bold text-accent opacity-50 transition-opacity duration-300 group-hover:opacity-100">
+              {service.number}
+            </span>
+            <div class="flex-1 pt-3">
+              <h3 class="mb-3 font-serif text-3xl font-semibold">
+                {service.title}
+              </h3>
+              <p class="leading-relaxed text-cream/80">
+                {service.description}
+              </p>
+            </div>
+          </div>
+          <div class="mt-6 h-px w-full bg-cream/20 transition-colors duration-300 group-hover:bg-accent"></div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Feature Image -->
+    <div class="fade-up mt-16 overflow-hidden md:mt-24">
+      <img
+        src="https://picsum.photos/1400/600?workspace"
+        alt="Our workspace"
+        class="h-96 w-full object-cover"
+      />
+    </div>
+  </div>
+</section>

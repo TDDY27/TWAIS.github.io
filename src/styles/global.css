@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+  /* Custom Colors */
+  --color-cream: #FAF9F6;
+  --color-charcoal: #2C2C2C;
+  --color-accent: #8B7355;
+
+  /* Font Families */
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
+}

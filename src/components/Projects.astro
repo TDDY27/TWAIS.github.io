@@ -1,0 +1,126 @@
+---
+// Projects component - Horizontal drag/scroll carousel
+const projects = [
+  {
+    title: "Coastal Residence",
+    category: "Residential",
+    year: "2023",
+    image: "https://picsum.photos/800/1000?house",
+  },
+  {
+    title: "Urban Plaza",
+    category: "Public Space",
+    year: "2023",
+    image: "https://picsum.photos/800/1000?city",
+  },
+  {
+    title: "Art Gallery",
+    category: "Cultural",
+    year: "2022",
+    image: "https://picsum.photos/800/1000?gallery",
+  },
+  {
+    title: "Mountain Retreat",
+    category: "Residential",
+    year: "2022",
+    image: "https://picsum.photos/800/1000?mountain",
+  },
+  {
+    title: "Corporate Headquarters",
+    category: "Commercial",
+    year: "2021",
+    image: "https://picsum.photos/800/1000?office",
+  },
+  {
+    title: "Community Center",
+    category: "Public",
+    year: "2021",
+    image: "https://picsum.photos/800/1000?community",
+  },
+];
+---
+
+<section class="projects-section overflow-hidden py-20 md:py-32">
+  <div class="container mx-auto px-6">
+    <!-- Section Header -->
+    <div class="mb-12 md:mb-16">
+      <h2 class="fade-up mb-6 font-serif text-5xl font-bold leading-tight md:text-6xl">
+        Selected Projects
+      </h2>
+      <p class="fade-up max-w-2xl text-lg text-charcoal/80">
+        A curated showcase of our recent work across diverse typologies and scales.
+      </p>
+    </div>
+  </div>
+
+  <!-- Horizontal Scroll Container -->
+  <div class="relative">
+    <div class="projects-scroll flex gap-6 overflow-x-auto px-6 pb-8 md:gap-8 lg:px-12">
+      {projects.map((project, index) => (
+        <div class="project-card fade-up group min-w-[300px] flex-shrink-0 md:min-w-[400px]">
+          <div class="relative overflow-hidden">
+            <img
+              src={project.image}
+              alt={project.title}
+              class="h-[500px] w-full object-cover transition-transform duration-700 group-hover:scale-110 md:h-[600px]"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+
+            <!-- Project Info Overlay -->
+            <div class="absolute bottom-0 left-0 right-0 p-6 text-cream opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <p class="mb-1 text-sm uppercase tracking-wider text-accent">
+                {project.category} • {project.year}
+              </p>
+              <h3 class="font-serif text-2xl font-semibold md:text-3xl">
+                {project.title}
+              </h3>
+            </div>
+          </div>
+
+          <!-- Static Info (mobile fallback) -->
+          <div class="mt-4 block group-hover:hidden md:hidden">
+            <p class="mb-1 text-sm uppercase tracking-wider text-accent">
+              {project.category} • {project.year}
+            </p>
+            <h3 class="font-serif text-xl font-semibold">
+              {project.title}
+            </h3>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Scroll Hint -->
+    <div class="mt-8 text-center">
+      <p class="text-sm uppercase tracking-wider text-charcoal/60">
+        ← Scroll to explore →
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects-scroll {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #8B7355 #FAF9F6;
+  }
+
+  .projects-scroll::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .projects-scroll::-webkit-scrollbar-track {
+    background: #FAF9F6;
+  }
+
+  .projects-scroll::-webkit-scrollbar-thumb {
+    background: #8B7355;
+    border-radius: 4px;
+  }
+
+  .project-card {
+    scroll-snap-align: start;
+  }
+</style>
