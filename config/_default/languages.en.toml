@@ -1,0 +1,21 @@
+disabled = false
+languageCode = "en"
+languageName = "English"
+weight = 1
+title = "NTUAIS"
+
+[params]
+  displayName = "EN"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "2 January 2006"
+  description = "National Taiwan University AI Safety Group - Advancing safe and beneficial AI"
+
+[params.author]
+  name = "NTUAIS"
+  # image = "img/ntuais-logo.png"  # Uncomment when logo file exists
+  headline = "AI Safety Research & Education"
+  bio = "We are a student-led group dedicated to researching and promoting safe, beneficial, and aligned Artificial Intelligence."
+  links = [
+    { github = "https://github.com/NTUAIS" },
+  ]

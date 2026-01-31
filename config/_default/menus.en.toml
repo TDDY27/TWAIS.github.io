@@ -1,0 +1,38 @@
+# -- Main Menu --
+
+[[main]]
+  name = "Home"
+  pageRef = "/"
+  weight = 10
+
+[[main]]
+  name = "About"
+  pageRef = "about"
+  weight = 20
+
+[[main]]
+  name = "Team"
+  pageRef = "team"
+  weight = 30
+
+[[main]]
+  name = "Projects"
+  pageRef = "projects"
+  weight = 40
+
+[[main]]
+  name = "Blog"
+  pageRef = "blog"
+  weight = 50
+
+# -- Footer Menu --
+
+[[footer]]
+  name = "About"
+  pageRef = "about"
+  weight = 10
+
+[[footer]]
+  name = "Team"
+  pageRef = "team"
+  weight = 20
