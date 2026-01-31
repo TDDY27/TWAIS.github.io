@@ -1,13 +1,14 @@
 ---
-title: "BlueDot Fellowship"
-description: "A ten-week introductory program for AI Safety newcomers"
+title: "BlueDot Fellowship 2026"
+description: "Ten-week introductory program for AI Safety newcomers"
 summary: "Learn to read and understand technical AI safety papers through the BlueDot Impact course materials."
-date: 2026-01-01
-weight: 1
-tags: ["fellowship", "introductory", "bluedot"]
+date: 2026-02-28
+tags: ["fellowship", "introductory", "bluedot", "upcoming"]
 ---
 
 A **ten-week program** designed for newcomers to AI Safety.
+
+**Start Date:** TBD (After February 2026)
 
 ## Program Structure
 
@@ -30,6 +31,7 @@ By the end of this program, participants will be able to:
 ## Who Should Join
 
 This track is perfect for:
+
 - Students new to AI Safety research
 - Researchers from other fields looking to transition into AI Safety
 - Anyone curious about alignment, interpretability, and AI governance

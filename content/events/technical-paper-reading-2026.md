@@ -1,13 +1,14 @@
 ---
-title: "Technical Paper Reading"
+title: "Technical Paper Reading 2026"
 description: "Weekly sessions to discuss the latest AI Safety research papers"
 summary: "Stay current with cutting-edge AI safety research through guided paper discussions."
-date: 2026-01-01
-weight: 2
-tags: ["technical", "research", "papers"]
+date: 2026-02-28
+tags: ["technical", "research", "papers", "upcoming"]
 ---
 
 A **fifteen-week program** for those with technical backgrounds to keep up with the latest AI Safety research.
+
+**Start Date:** TBD (After February 2026)
 
 ## How It Works
 
@@ -20,6 +21,7 @@ A **fifteen-week program** for those with technical backgrounds to keep up with 
 ## Who Should Join
 
 This track is designed for:
+
 - Participants who have completed the BlueDot Fellowship
 - Researchers with ML/AI technical backgrounds
 - Graduate students working on AI Safety topics
@@ -27,6 +29,7 @@ This track is designed for:
 ## Topics Covered
 
 Papers may cover areas such as:
+
 - Mechanistic Interpretability
 - Alignment Techniques
 - Scalable Oversight
