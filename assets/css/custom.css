@@ -1,0 +1,179 @@
+/* ============================================
+   NTUAIS Custom Styles - Whipsaw-Inspired
+   ============================================ */
+
+/* Google Fonts - Instrument Sans */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap');
+
+/* ============================================
+   Global Dark Theme Overrides
+   ============================================ */
+:root {
+  --color-neutral-950: #0f172a;
+  --color-neutral-900: #1e293b;
+  --color-neutral-800: #334155;
+  --color-neutral-100: #f1f5f9;
+  --color-neutral-50: #f8fafc;
+  --color-primary-500: #3b82f6;
+  --color-primary-400: #60a5fa;
+}
+
+html, body {
+  background-color: var(--color-neutral-950) !important;
+  font-family: 'Instrument Sans', system-ui, -apple-system, sans-serif !important;
+}
+
+/* ============================================
+   Hero Section Styles
+   ============================================ */
+.hero-background {
+  background: linear-gradient(135deg, var(--color-neutral-950) 0%, var(--color-neutral-900) 50%, var(--color-neutral-800) 100%);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated gradient overlay */
+.hero-background::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+  animation: gradientShift 15s ease-in-out infinite alternate;
+}
+
+@keyframes gradientShift {
+  0% { opacity: 0.6; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.1); }
+}
+
+/* Hero headline */
+.hero-headline {
+  font-family: 'Instrument Sans', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: clamp(2.5rem, 6vw, 5rem) !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.02em !important;
+  color: #ffffff !important;
+  text-align: center !important;
+}
+
+/* Hero subtitle / tagline */
+.hero-subtitle {
+  font-family: 'Instrument Sans', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: clamp(1rem, 2vw, 1.5rem) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  text-align: center !important;
+}
+
+/* ============================================
+   Capsule Button Styles
+   ============================================ */
+.btn-capsule {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0.875rem 2rem !important;
+  border-radius: 9999px !important;
+  font-family: 'Instrument Sans', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 1rem !important;
+  text-decoration: none !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  cursor: pointer !important;
+}
+
+/* Primary button - filled */
+.btn-capsule-primary {
+  background-color: #ffffff !important;
+  color: var(--color-neutral-950) !important;
+  border: 2px solid #ffffff !important;
+}
+
+.btn-capsule-primary:hover {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 40px rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Secondary button - outline */
+.btn-capsule-secondary {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border: 2px solid rgba(255, 255, 255, 0.4) !important;
+}
+
+.btn-capsule-secondary:hover {
+  border-color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ============================================
+   Entrance Animations
+   ============================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animation-delay-200 {
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+.animation-delay-400 {
+  animation-delay: 0.4s;
+  opacity: 0;
+}
+
+.animation-delay-600 {
+  animation-delay: 0.6s;
+  opacity: 0;
+}
+
+/* ============================================
+   Navigation Overrides
+   ============================================ */
+header {
+  background: rgba(15, 23, 42, 0.8) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+/* ============================================
+   Typewriter Cursor
+   ============================================ */
+.cursor {
+  display: inline-block;
+  color: var(--color-primary-400);
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* ============================================
+   Responsive Adjustments
+   ============================================ */
+@media (max-width: 768px) {
+  .btn-capsule {
+    padding: 0.75rem 1.5rem !important;
+    font-size: 0.875rem !important;
+  }
+}
