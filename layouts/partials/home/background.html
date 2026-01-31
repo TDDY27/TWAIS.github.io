@@ -6,25 +6,12 @@
   {{/* Main content container - LEFT ALIGNED */}}
   <div class="relative z-10 w-full max-w-6xl mx-auto px-6 md:px-12 py-32">
 
-    {{/* Optional: Logo/Author Image */}}
-    {{ with .Site.Params.Author.image }}
-    {{ $authorImage := "" }}
-    {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
-    {{ $authorImage = resources.GetRemote . }}
-    {{ else }}
-    {{ $authorImage = resources.Get . }}
-    {{ end }}
-    {{ if $authorImage }}
-    {{ $final := $authorImage }}
-    {{ if not (or $disableImageOptimization (eq $authorImage.MediaType.SubType "svg")) }}
-    {{ $final = $authorImage.Fill "288x288 q96" }}
-    {{ end }}
-    <img class="mb-8 h-16 w-16 rounded-xl animate-blur-reveal" width="64" height="64"
-      alt="{{ $.Site.Params.Author.name | default `Logo` }}" src="{{ $final.RelPermalink }}">
-    {{ end }}
-    {{ end }}
+    {{/* Section Badge */}}
+    <div class="animate-blur-reveal">
+      <span class="section-badge section-badge--blue">AI Safety Research</span>
+    </div>
 
-    {{/* Main Headline - LEFT ALIGNED */}}
+    {{/* Main Headline - LEFT ALIGNED, BRIGHT WHITE */}}
     <h1 class="linear-headline animate-blur-reveal delay-100">
       {{ .Site.Params.Author.name | default .Site.Title }}
     </h1>
@@ -37,7 +24,7 @@
         }}</span>
       <script>
         const texts = {{ $.Site.Params.homepage.typewriter.texts }};
-        const speed = {{ $.Site.Params.homepage.typewriter.speed | default 60 }};
+        const speed = {{ $.Site.Params.homepage.typewriter.speed | default 50 }};
         let textIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
@@ -66,7 +53,7 @@
         }
 
         document.addEventListener("DOMContentLoaded", function () {
-          setTimeout(type, 600);
+          setTimeout(type, 500);
         });
       </script>
       {{ else }}
@@ -75,7 +62,7 @@
     </h2>
     {{ end }}
 
-    {{/* CTA Buttons - Linear Style (8px radius) */}}
+    {{/* CTA Buttons - Linear Style */}}
     <div class="flex flex-wrap gap-3 animate-blur-reveal delay-300">
       {{ with .Site.Params.homepage.button }}
       {{ if .enable }}
@@ -95,10 +82,10 @@
 
     {{/* Social Links */}}
     {{ with .Site.Params.Author.links }}
-    <div class="mt-10 flex flex-wrap gap-4 animate-blur-reveal delay-400">
+    <div class="mt-8 flex flex-wrap gap-4 animate-blur-reveal delay-400">
       {{ range $links := . }}
       {{ range $name, $url := $links }}
-      <a class="text-[#8A8F98] hover:text-white transition-colors duration-200" href="{{ $url }}" target="_blank"
+      <a class="text-[#9CA3AF] hover:text-white transition-colors duration-200" href="{{ $url }}" target="_blank"
         aria-label="{{ $name | title }}" title="{{ $name | title }}" rel="me noopener noreferrer">
         {{ partial "icon.html" $name }}
       </a>
@@ -111,7 +98,50 @@
 
 </article>
 
-{{/* Content section below hero - Scrollable */}}
+{{/* Feature Cards Section - Bento Style */}}
+<section class="content-section py-20">
+  <div class="max-w-6xl mx-auto px-6 md:px-12">
+
+    {{/* Section Header */}}
+    <div class="mb-12">
+      <span class="section-badge section-badge--green">Our Focus</span>
+      <h2 class="section-heading">Research areas we explore</h2>
+      <p class="section-description">
+        Advancing AI safety through rigorous research, education, and community building.
+      </p>
+    </div>
+
+    {{/* Feature Grid */}}
+    <div class="feature-grid">
+
+      <div class="feature-card">
+        <h3 class="feature-card-title">🔍 Mechanistic Interpretability</h3>
+        <p class="feature-card-description">
+          Understanding the internal mechanisms of neural networks to make AI systems more transparent and predictable.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h3 class="feature-card-title">🎯 Alignment Research</h3>
+        <p class="feature-card-description">
+          Developing techniques to ensure AI systems reliably pursue intended goals without harmful side effects.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h3 class="feature-card-title">📚 Education & Workshops</h3>
+        <p class="feature-card-description">
+          Hosting reading groups, workshops, and summer programs to grow the AI safety research community in Taiwan.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+{{/* Content from _index.md */}}
+{{ if .Content }}
 <section class="content-section py-16">
   <div class="max-w-4xl mx-auto px-6">
     <div class="prose prose-invert prose-lg mx-auto">
@@ -119,8 +149,9 @@
     </div>
   </div>
 </section>
+{{ end }}
 
 {{/* Recent articles */}}
-<section class="content-section">
+<section class="content-section pb-20">
   {{ partial "recent-articles/main.html" . }}
 </section>
