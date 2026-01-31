@@ -1,0 +1,17 @@
+{
+    "name": "Tzu-Tsen Hsieh (Christine)",
+    "image": "img/members/avatar-f.png",
+    "bio": "MSc in Electrical Engineering from NTU. Research in medical AI and interpretable models.",
+    "description": "MSc graduate in Electrical Engineering from NTU. I recently returned from Montreal after completing a research internship and attending EAG New York. During my internship, I conducted research in medical AI, focusing on interpretable models. I worked on reinforcement learning to improve alignment in diffusion models for inverse problems.",
+    "social": [
+        {
+            "email": "mailto:christinehsieh0118@gmail.com"
+        },
+        {
+            "linkedin": "https://www.linkedin.com/in/tzu-tsen-hsieh-924a47208/"
+        },
+        {
+            "facebook": "https://www.facebook.com/xie.zi.cen/"
+        }
+    ]
+}
