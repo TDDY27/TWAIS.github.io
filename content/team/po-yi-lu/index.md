@@ -1,6 +1,6 @@
 ---
 title: "Po-Yi Lu"
-description: "Ph.D. Student @ NTU | Visiting Scholar @ Texas A&M"
+description: "Ph.D. Student @ NTU GINM | Visiting Scholar @ Texas A&M"
 summary: "Ph.D. student at NTU and visiting scholar at Texas A&M. Founder of Taiwan AI Safety (TWAIS) Group, researching preference alignment and generative models."
 date: 2026-02-07
 authors: ["po-yi-lu"]

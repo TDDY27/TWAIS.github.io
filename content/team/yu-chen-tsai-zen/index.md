@@ -1,6 +1,6 @@
 ---
 title: "Yu-Chen Tsai"
-description: "Math Undergrad @ NTU | HCI Lab"
+description: "Undergraduate Student @ NTU Math | HCI Lab"
 summary: "Workshop facilitator at 2025 Taiwan AI Safety Summer Workshop. Passionate about understanding intelligence and AI alignment."
 date: 2026-01-31
 authors: ["yu-chen-tsai-zen"]

@@ -1,6 +1,6 @@
 ---
 title: "Leonardo Foo Haw-Yang"
-description: "MS Student @ NTU GICE | SPML Lab"
+description: "M.S. Student @ NTU GICE | SPML Lab"
 summary: "AI researcher focusing on NLP, Speech Processing, and Mechanistic Interpretability. Facilitator for 2025 Taiwan AI Safety Summer Workshop."
 date: 2026-01-31
 authors: ["leonardo-foo-haw-yang"]
