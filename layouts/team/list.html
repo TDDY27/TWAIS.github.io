@@ -13,60 +13,88 @@
             {{ end }}
         </header>
 
-        {{/* Team Members List - Horizontal Row Layout */}}
-        <div class="team-list space-y-6">
-            {{ range .Pages }}
-            {{ $authorKey := index .Params.authors 0 }}
-            {{ $authorData := index $.Site.Data.authors $authorKey }}
+        {{/* Filter Members */}}
+        {{ $members := .Pages }}
+        {{ $active := where $members "Params.status" "ne" "mentor" }}
+        {{ $mentors := where $members "Params.status" "eq" "mentor" }}
 
-            <article class="team-member-row">
-                {{/* Profile Picture - Check page resources first, then fallback to author data */}}
-                <div class="team-member-avatar">
-                    {{ $avatar := .Resources.GetMatch "avatar.*" }}
-                    {{ if $avatar }}
-                    <img src="{{ $avatar.RelPermalink }}" alt="{{ .Title }}"
-                        class="w-full h-full object-cover rounded-xl" style="pointer-events: none;"
-                        data-zoomable="false">
-                    {{ else if $authorData.image }}
-                    <img src="{{ $authorData.image | relURL }}" alt="{{ .Title }}"
-                        class="w-full h-full object-cover rounded-xl" style="pointer-events: none;"
-                        data-zoomable="false">
-                    {{ else }}
-                    <div class="w-full h-full bg-neutral-700 rounded-xl flex items-center justify-center">
-                        <span class="text-4xl">👤</span>
+        {{/* Active Members Section */}}
+        {{ if gt (len $active) 0 }}
+        <section class="mb-16">
+            <h2 class="section-heading mb-8">Organizers</h2>
+            <div class="team-list space-y-6">
+                {{ range $active }}
+                {{ $authorKey := index .Params.authors 0 }}
+                {{ $authorData := index $.Site.Data.authors $authorKey }}
+
+                <article class="team-member-row">
+                    {{/* Profile Picture */}}
+                    <div class="team-member-avatar">
+                        {{ $avatar := .Resources.GetMatch "avatar.*" }}
+                        {{ if $avatar }}
+                        <img src="{{ $avatar.RelPermalink }}" alt="{{ .Title }}"
+                            class="w-full h-full object-cover rounded-xl" style="pointer-events: none;"
+                            data-zoomable="false">
+                        {{ else if $authorData.image }}
+                        <img src="{{ $authorData.image | relURL }}" alt="{{ .Title }}"
+                            class="w-full h-full object-cover rounded-xl" style="pointer-events: none;"
+                            data-zoomable="false">
+                        {{ else }}
+                        <div class="w-full h-full bg-neutral-700 rounded-xl flex items-center justify-center">
+                            <span class="text-4xl">👤</span>
+                        </div>
+                        {{ end }}
                     </div>
-                    {{ end }}
-                </div>
 
-                {{/* Info Section */}}
-                <div class="team-member-info">
-                    {{/* Name */}}
-                    <h2 class="team-member-name">
-                        <a href="{{ .Permalink }}">{{ .Title }}</a>
-                    </h2>
+                    {{/* Info Section */}}
+                    <div class="team-member-info">
+                        {{/* Name */}}
+                        <h2 class="team-member-name">
+                            <a href="{{ .Permalink }}">{{ .Title }}</a>
+                        </h2>
 
-                    {{/* Role / Short Description */}}
+                        {{/* Role / Short Description */}}
+                        {{ with .Description }}
+                        <p class="team-member-role">{{ . }}</p>
+                        {{ end }}
+
+                        {{/* Social Links */}}
+                        {{ with $authorData.social }}
+                        <div class="team-member-social">
+                            {{ range . }}
+                            {{ range $platform, $url := . }}
+                            <a href="{{ $url }}" target="_blank" rel="noopener" class="team-social-link"
+                                title="{{ $platform | title }}">
+                                {{ partial "icon.html" $platform }}
+                            </a>
+                            {{ end }}
+                            {{ end }}
+                        </div>
+                        {{ end }}
+                    </div>
+                </article>
+                {{ end }}
+            </div>
+        </section>
+        {{ end }}
+
+        {{/* Mentors Section */}}
+        {{ if gt (len $mentors) 0 }}
+        <section>
+            <h2 class="section-heading mb-6">Mentors</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {{ range $mentors }}
+                <a href="{{ .Permalink }}"
+                    class="block p-4 rounded-xl border border-neutral-800 bg-neutral-900/50 hover:bg-neutral-800 transition-colors">
+                    <h3 class="text-lg font-semibold text-neutral-100">{{ .Title }}</h3>
                     {{ with .Description }}
-                    <p class="team-member-role">{{ . }}</p>
+                    <p class="text-sm text-neutral-400 mt-1">{{ . }}</p>
                     {{ end }}
-
-                    {{/* Social Links - Moved up, Bio removed */}}
-                    {{ with $authorData.social }}
-                    <div class="team-member-social">
-                        {{ range . }}
-                        {{ range $platform, $url := . }}
-                        <a href="{{ $url }}" target="_blank" rel="noopener" class="team-social-link"
-                            title="{{ $platform | title }}">
-                            {{ partial "icon.html" $platform }}
-                        </a>
-                        {{ end }}
-                        {{ end }}
-                    </div>
-                    {{ end }}
-                </div>
-            </article>
-            {{ end }}
-        </div>
+                </a>
+                {{ end }}
+            </div>
+        </section>
+        {{ end }}
 
     </div>
 </main>
