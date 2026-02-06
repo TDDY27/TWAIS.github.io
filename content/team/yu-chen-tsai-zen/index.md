@@ -5,7 +5,7 @@ summary: "Workshop facilitator at 2025 Taiwan AI Safety Summer Workshop. Passion
 date: 2026-01-31
 authors: ["yu-chen-tsai-zen"]
 status: "active"
-weight: 3
+weight: 4
 draft: false
 ---
 
