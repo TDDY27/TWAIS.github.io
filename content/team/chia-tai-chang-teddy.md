@@ -4,6 +4,7 @@ description: "Junior in CSIE @ NTU | AI Safety Lab"
 summary: "Research focuses on mechanistic interpretability (sparse autoencoders for multi-preference alignment) and machine unlearning via adversarial perturbation."
 date: 2026-01-31
 authors: ["chia-tai-chang-teddy"]
+status: "active"
 draft: false
 ---
 

@@ -4,6 +4,7 @@ description: "MSc in EE @ NTU | Medical AI Researcher"
 summary: "Research in medical AI with focus on interpretable models and reinforcement learning for diffusion model alignment."
 date: 2026-01-31
 authors: ["tzu-tsen-hsieh-christine"]
+status: "active"
 draft: false
 ---
 
