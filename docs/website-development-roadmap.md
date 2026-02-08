@@ -41,7 +41,7 @@
 | **Dark Mode** | ✅ | 預設深色，已移除切換 |
 | **Search** | ✅ | Blowfish 內建 |
 | **SEO & Open Graph** | ⏳ | 需自訂 OG 圖片 |
-| **Vercel 部署** | ⏳ | 🔴 高優先 |
+| **GitHub Pages 部署** | ✅ | � 已完成 (GitHub Actions) |
 
 ---
 
@@ -79,8 +79,8 @@ content/
 
 ## 6. 下一步行動 (Next Steps)
 
-### 🔴 高優先
-- [ ] **Vercel 部署** - 設定 GitHub Actions CI/CD
+### ✅ 已完成 (Completed)
+- [x] **GitHub Pages 部署** - 設定 GitHub Actions CI/CD
 - [ ] **填充 Events 內容** - 新增過往活動
 - [ ] **填充 Resources 內容** - 新增學習資源
 
@@ -101,7 +101,7 @@ content/
 2. **Organizer**：
    - 方法一：直接在 GitHub Web 編輯 `content/` Markdown
    - 方法二：(未來) Decap CMS 圖形化編輯
-3. **自動化**：每次 Git Push 觸發 Vercel Build
+3. **自動化**：每次 Git Push 觸發 GitHub Actions Build
 
 ---
 
@@ -114,8 +114,8 @@ content/
 *   **執行項目**:
     *   [x] **新增區塊**: 在首頁加入 "Upcoming 2026 Programs"。
     *   [x] **Unify Team Data Structure**: Move all member data to `content/team/*.md` and update `list.html` to remove JSON dependency.
-    *   [ ] **Setup Deployment**: Configure GitHub Actions to automatically build and deploy `TWAIS.github.io` on commit to `main`.
-    *   [ ] **填補資訊**: 確認 BlueDot, Technical Reading, Policy Reading 的具體日期與報名連結。
+    *   [x] **Setup Deployment**: Configure GitHub Actions to automatically build and deploy `TWAIS.github.io` on commit to `main` (Served via GitHub Pages).
+    *   [ ] **填補資訊**: 確認 BlueDot, Technical Reading, 的具體日期與報名連結。
     *   [ ] **樣式優化**: 確保手機版顯示正常。
 
 ### Phase 2: 品牌教準 (Refine Identity) - 🟡 Planned

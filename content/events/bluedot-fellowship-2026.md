@@ -1,37 +1,50 @@
 ---
-title: "BlueDot Fellowship 2026"
-description: "Ten-week introductory program for AI Safety newcomers"
-summary: "Learn to read and understand technical AI safety papers through the BlueDot Impact course materials."
+title: "BlueDot Fellowship 2026: AI Safety Technical Course"
+description: "A ten-week guided course on Technical AI Safety, following the BlueDot Impact curriculum."
+summary: "Join us for a deep dive into 'The Alignment Problem'. Learn about the drivers of AI progress, threat pathways, and defence strategies."
 date: 2026-02-28
-tags: ["fellowship", "introductory", "bluedot", "upcoming"]
+tags: ["fellowship", "introductory", "bluedot", "upcoming", "technical"]
 ---
 
-A **ten-week program** designed for newcomers to AI Safety.
+**Course Material**: [Technical AI Safety Curriculum](https://bluedot.org/courses/technical-ai-safety)
 
-**Start Date:** TBD (After February 2026)
+The **BlueDot Fellowship 2026** at NTUAIS will follow the **BlueDot Impact "Technical AI Safety" curriculum**. This course focuses on the question: **“How do we make AI go well?”**
 
-## Program Structure
+## Course Overview
 
-| Week | Content |
-|------|---------|
-| Week 1 | Introduction to AI Safety |
-| Weeks 2-9 | BlueDot Impact Course Materials |
-| Week 10 | Review Session |
+On this course, we will identify the future we're working toward and understand the key dynamics of AI safety:
 
-**Duration:** 2.5 hours per week
+* **Drivers of AI progress**: compute, data, algorithms
+* **Threat pathways**: power concentration, gradual disempowerment, catastrophic pandemics, critical infrastructure collapse
+* **Plans for making AI go well**: government control over AGI, hand over control to aligned superintelligence, build defences and diffuse AI
+* **Layers of defences to build**: prevent dangerous AI actions → constrain dangerous AI capabilities → withstand dangerous AI actions
 
-## What You'll Learn
+This course focuses on **defining what AI systems we are building and how**.
 
-By the end of this program, participants will be able to:
+## Learning Outcomes
 
-- Read and understand technical AI safety papers independently
-- Join our Technical Paper Reading group for more advanced discussions
-- Engage with the broader AI Safety research community
+You will gain the technical foundation to understand what it will actually take to make AI systems safer – and why it’s so challenging.
 
-## Who Should Join
+Throughout the course, you will:
 
-This track is perfect for:
+* **Diagnose** why making AI safe is technically challenging
+* **Evaluate** current safety techniques: what works, what doesn’t, where the gaps are
+* **Build** your own "kill chain" showing how defences might break
+* **Identify** the most promising intervention point for your contribution
+* **Leave** with a fundable action plan to start shipping
 
-- Students new to AI Safety research
-- Researchers from other fields looking to transition into AI Safety
-- Anyone curious about alignment, interpretability, and AI governance
+## What this course isn't
+
+Though important for making AI go well, we’ll cover the following in separate tracks or courses:
+
+* **AI policy details**: though you'll gain the technical grounding for effective AI governance
+* **Compute governance**: hardware verification and tracking deserve their own deep dive
+* **AI security**: e.g. preventing model theft or escape
+* **ML basics**: please ensure you have a basic understanding of ML before joining (or complete AI foundations modules first)
+
+## Join Us
+
+Let’s start with the question: **“How might we build safe AI?”**
+
+**Start Date:** TBD to Late February 2026
+**Format:** Weekly reading + Discussion sessions
