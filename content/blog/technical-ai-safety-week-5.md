@@ -21,7 +21,7 @@ authors:
 
 本節談的是最後的技術防線。**在我們已經訓練出一個 AI 之後，如何把它的傷害降到最低？**
 
-## **資源（50 分鐘）**
+## 資源：AI 控制（50 分鐘）
 
 - [**危險地使用 AI，但安全地？**](https://www.youtube.com/watch?v=0pgEMWy70Qk&utm_source=bluedot-impact)
 
@@ -48,7 +48,7 @@ authors:
 
     **Sharma et al. · 2025 · 10 分鐘**
 
-**選讀資源**
+### 選讀資源：AI 控制
 
 - [**Buck Shlegeris 談控制想奪權的 AI——這樣我們還是能用它**](https://80000hours.org/podcast/episodes/buck-shlegeris-ai-control-scheming/?utm_source=bluedot-impact)
 
@@ -56,7 +56,7 @@ authors:
 
 ---
 
-## **建立防禦**
+## 建立防禦
 
 現在要針對真實威脅，對我們介紹過的防禦進行壓力測試。
 
@@ -76,7 +76,7 @@ authors:
 - [**災難性疫情**](https://bluedot.org/courses/agi-strategy/3/5)：可能設計、製造並釋放比 SARS-CoV-2 更嚴重的病毒到人群中，導致全球疫情。
 - [**漸進式失權**](https://bluedot.org/courses/agi-strategy/3/4)：或所有行為者的預設誘因導致壞結果，即使沒有任何惡意。
 
-## **資源（50 分鐘）**
+## 資源：威脅建模（50 分鐘）
 
 - [**AI 助長的政變：小團體如何用 AI 奪權**](https://www.forethought.org/research/ai-enabled-coups-how-a-small-group-could-use-ai-to-seize-power?utm_source=bluedot-impact)
 
@@ -96,9 +96,9 @@ authors:
 
     **Li-Lian Ang · 2025 · 5 分鐘**
 
-### **練習**
+### 練習
 
-**聚焦單一威脅**
+#### 聚焦單一威脅
 
 根據你目前的理解，你認為哪條威脅路徑最值得擔心？
 
@@ -108,11 +108,11 @@ authors:
 
 ---
 
-## **打斷殺傷鏈**
+## 打斷殺傷鏈
 
-## **練習**
+### 練習
 
-**逐步拆解**
+#### 逐步拆解
 
 **殺傷鏈**把「威脅情境」拆成執行階段。它追蹤攻擊者實際上會如何一步步進行，例如透過偵察、投遞、利用、持久化、達成目標。
 
@@ -120,13 +120,13 @@ authors:
 
 根據你的情境，使用[此模板](https://bluedot-impact.notion.site/kill-chain?source=copy_link)完成本練習。
 
-**造成傷害所需的能力**
+#### 造成傷害所需的能力
 
 列出你的威脅需要的 3–5 項具體技術能力或行為。具體說明 AI 需要能做到什麼。
 
 例如：自我複製、跨實例的目標持久、長期規劃與協調、資源取得（算力、金錢）、生物武器知識／合成
 
-**建立防禦**
+#### 建立防禦
 
 哪一項能力／行為最重要？若我們只阻止這一項，整個威脅是否就會瓦解？
 
