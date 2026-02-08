@@ -102,3 +102,28 @@ content/
    - 方法一：直接在 GitHub Web 編輯 `content/` Markdown
    - 方法二：(未來) Decap CMS 圖形化編輯
 3. **自動化**：每次 Git Push 觸發 Vercel Build
+
+---
+
+## 8. 短期推廣計畫 (Promotion Roadmap - Feb 2026)
+
+**目標 (Goal)**: 準備 2-3 週後的社群推廣。重點在於清晰傳達「我們是誰」以及「即將開始的活動」。
+
+### Phase 1: 首頁活動亮點 (Homepage Highlights) - 🟢 In Progress
+*   **目標**: 讓新訪客一眼看到可以參加的活動。
+*   **執行項目**:
+    *   [x] **新增區塊**: 在首頁加入 "Upcoming 2026 Programs"。
+    *   [ ] **填補資訊**: 確認 BlueDot, Technical Reading, Policy Reading 的具體日期與報名連結。
+    *   [ ] **樣式優化**: 確保手機版顯示正常。
+
+### Phase 2: 品牌教準 (Refine Identity) - 🟡 Planned
+*   **目標**: 吸引聽眾，建立信任感。
+*   **執行項目**:
+    *   **Hero 文案**: 調整打字機效果文字，使其更具號召力。
+    *   **About 頁面**: 增加成員故事或照片 (Optional)。
+
+### Phase 3: 行動呼籲 (Call to Action) - 🟡 Planned
+*   **目標**: 提高轉換率 (申請/加入)。
+*   **執行項目**:
+    *   **Global CTA**: 確保首頁 "Join Community" 按鈕引導至 Discord 新手區。
+    *   **Event CTAs**: 每個活動頁面頂部加入顯眼的 "Apply Now" 按鈕。
