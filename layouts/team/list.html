@@ -24,9 +24,6 @@
             <h2 class="section-heading mb-8">Organizers</h2>
             <div class="team-list space-y-6">
                 {{ range $active }}
-                {{ $authorKey := index .Params.authors 0 }}
-                {{ $authorData := index $.Site.Data.authors $authorKey }}
-
                 <article class="team-member-row">
                     {{/* Profile Picture */}}
                     <div class="team-member-avatar">
@@ -35,8 +32,8 @@
                         <img src="{{ $avatar.RelPermalink }}" alt="{{ .Title }}"
                             class="w-full h-full object-cover rounded-xl" style="pointer-events: none;"
                             data-zoomable="false">
-                        {{ else if $authorData.image }}
-                        <img src="{{ $authorData.image | relURL }}" alt="{{ .Title }}"
+                        {{ else if .Params.image }}
+                        <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}"
                             class="w-full h-full object-cover rounded-xl" style="pointer-events: none;"
                             data-zoomable="false">
                         {{ else }}
@@ -59,7 +56,7 @@
                         {{ end }}
 
                         {{/* Social Links */}}
-                        {{ with $authorData.social }}
+                        {{ with .Params.social }}
                         <div class="team-member-social flex flex-wrap gap-3">
                             {{ range . }}
                             {{ range $platform, $url := . }}
@@ -85,9 +82,6 @@
             <h2 class="section-heading mb-8">Mentors</h2>
             <div class="team-list space-y-6">
                 {{ range $mentors }}
-                {{ $authorKey := index .Params.authors 0 }}
-                {{ $authorData := index $.Site.Data.authors $authorKey }}
-
                 <article class="team-member-row">
                     {{/* Profile Picture */}}
                     <div class="team-member-avatar">
@@ -96,8 +90,8 @@
                         <img src="{{ $avatar.RelPermalink }}" alt="{{ .Title }}"
                             class="w-full h-full object-cover rounded-xl" style="pointer-events: none;"
                             data-zoomable="false">
-                        {{ else if $authorData.image }}
-                        <img src="{{ $authorData.image | relURL }}" alt="{{ .Title }}"
+                        {{ else if .Params.image }}
+                        <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}"
                             class="w-full h-full object-cover rounded-xl" style="pointer-events: none;"
                             data-zoomable="false">
                         {{ else }}
@@ -120,7 +114,7 @@
                         {{ end }}
 
                         {{/* Social Links */}}
-                        {{ with $authorData.social }}
+                        {{ with .Params.social }}
                         <div class="team-member-social flex flex-wrap gap-3">
                             {{ range . }}
                             {{ range $platform, $url := . }}
