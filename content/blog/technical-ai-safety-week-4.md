@@ -143,7 +143,7 @@ authors:
 
 *建議閱讀 45 分鐘、撰寫 15 分鐘。*
 
-### 選讀資源
+### 更多選讀資源
 
 - [**ARENA 課程：Transformer 可解釋性**](https://arena-chapter1-transformer-interp.streamlit.app/?utm_source=bluedot-impact)
 

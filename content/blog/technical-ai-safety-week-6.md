@@ -221,55 +221,6 @@ AI 安全之所以需要更多人投入，一個關鍵原因是：相較於它�
 
     [**建立免費帳號以儲存你的答案**](https://bluedot.org/login?register=true&redirect_to=%2Fcourses%2Ftechnical-ai-safety%2F6%2F3)
 
-### 選讀資源：職涯建議
-
-- [**Open Philanthropy AI 安全技術徵求計畫：研究領域**](https://www.openphilanthropy.org/tais-rfp-research-areas/?utm_source=bluedot-impact)
-
-    **Open Philanthropy · 2025**
-
-- [**英國 AISI 對齊團隊：研究議程**](https://www.alignmentforum.org/posts/tbnw7LbNApvxNLAg8/uk-aisi-s-alignment-team-research-agenda?utm_source=bluedot-impact)
-
-    **Hilton 等人 · 2025**
-
-- [**AI 安全技術研究方向建議**](https://alignment.anthropic.com/2025/recommended-directions?utm_source=bluedot-impact)
-
-    **Anthropic 對齊科學團隊 · 2025**
-
-- [**Redwood Research 近期專案提案**](https://blog.redwoodresearch.org/p/recent-redwood-research-project-proposals?utm_source=bluedot-impact)
-
-    由 Redwood 研究員提出、涵蓋多個領域的實證 AI 安全／資安專案。
-
-    **Greenblatt 等人 · 2025**
-
-- [**我是資深軟體工程師。我如何貢獻 AI 安全？**](https://blog.bluedot.org/p/im-an-experienced-swe?utm_source=bluedot-impact)
-
-    **Li-Lian Ang · 2025 · 5 分鐘**
-
-## 擬定計畫
-
-我們不期待這會非常詳盡或完美——把它當作初稿，一個足以幫你起步的版本就好。
-
-### 學習資源（15 分鐘）
-
-- [**個人行動計畫範本**](https://docs.google.com/document/d/1FN37vYcSZZEDyPddnIuEY6Yqg-TBZFN_lLK_Gyp7H2U/copy)
-
-    使用此範本制定你自己的個人行動計畫。若你認為其他範本更適合，我們鼓勵你自由調整！
-
-    **Dewi Erwan · 2025 · 10 分鐘**
-
-- [**獨立研究的一些建議**](https://www.alignmentforum.org/posts/kpmaEevZ2KehZo2tp/some-advice-on-independent-research)
-
-    **Marius Hobbhahn · 2022 · 5 分鐘**
-
-### 練習
-
-- **撰寫你的個人行動計畫**
-
-    請花約 1 小時完成。
-
-    完成後：1）將 Google 文件設為可分享、2）貼到下方、3）在 Slack 分享給你的小組！
-
-    [**建立免費帳號以儲存你的答案**](https://bluedot.org/login?register=true&redirect_to=%2Fcourses%2Ftechnical-ai-safety%2F6%2F3)
 
 **選讀資源**
 
