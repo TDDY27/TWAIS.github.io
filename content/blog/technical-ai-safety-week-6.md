@@ -6,6 +6,9 @@ summary: "你正站在 AI 安全技術旅程的起點。本週課程整理了 AI
 tags: ["AI Safety", "Course", "Career"]
 categories: ["Education"]
 author: "BlueDot Impact (Translated by Yu-Chen Tsai)"
+showAuthor: false
+authors:
+  - "bluedot"
 ---
 
 **你正站在 AI 安全技術旅程的起點。**

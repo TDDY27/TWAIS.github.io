@@ -6,6 +6,9 @@ summary: "本週課程探討機械式可解釋性（Mechanistic Interpretability
 tags: ["AI Safety", "Course", "Mechanistic Interpretability"]
 categories: ["Education"]
 author: "BlueDot Impact (Translated by Yu-Chen Tsai)"
+showAuthor: false
+authors:
+  - "bluedot"
 ---
 
 **AI 是怎麼思考的？**

@@ -6,6 +6,9 @@ summary: "本週課程探討 AI 系統可能造成的災難性風險（如幫助
 tags: ["AI Safety", "Course", "Risk Assessment", "AI Control"]
 categories: ["Education"]
 author: "BlueDot Impact (Translated by Yu-Chen Tsai)"
+showAuthor: false
+authors:
+  - "bluedot"
 ---
 
 **假設傷害會發生**
