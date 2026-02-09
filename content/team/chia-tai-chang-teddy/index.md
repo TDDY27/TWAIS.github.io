@@ -6,7 +6,7 @@ date: 2026-01-31
 role: "organizer"
 weight: 2
 draft: false
-image: "img/members/avatar-m.png"
+image: "avatar.jpg"
 social:
   - email: "mailto:jiataizang@gmail.com"
   - linkedin: "https://www.linkedin.com/in/chia-tai-chang-339886212/"
