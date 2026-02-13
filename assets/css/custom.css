@@ -311,6 +311,14 @@ header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
 }
 
+/* Keep wide SVG brand marks readable in the top navigation */
+header .main-menu .logo svg {
+  display: block;
+  height: 2.5rem;
+  width: auto;
+  max-width: min(52vw, 12rem);
+}
+
 /* ============================================
    Content Section
    ============================================ */
@@ -350,6 +358,11 @@ header {
   .btn-linear {
     height: 44px !important;
     padding: 0 20px !important;
+  }
+
+  header .main-menu .logo svg {
+    height: 2.1rem;
+    max-width: 10rem;
   }
 }
 

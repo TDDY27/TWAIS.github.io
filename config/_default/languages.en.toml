@@ -10,6 +10,7 @@ title = "NTUAIS"
   rtl = false
   dateFormat = "2 January 2006"
   description = "National Taiwan University AI Safety Group - Advancing safe and beneficial AI"
+  logo = "img/branding/ntuais-logo.svg"
 
 [params.author]
   name = "NTUAIS"
