@@ -83,11 +83,21 @@ body {
    ============================================ */
 .hero-linear {
   background: transparent;
-  min-height: calc(100vh - 64px);
+  min-height: clamp(34rem, 82vh, 48rem);
   position: relative;
   overflow: hidden;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+}
+
+/* Balance hero vertical rhythm against the next section */
+.hero-linear > .relative {
+  padding-top: clamp(6.5rem, 13vh, 9rem) !important;
+  padding-bottom: clamp(4rem, 9vh, 6rem) !important;
+}
+
+.hero-linear + .content-section {
+  padding-top: clamp(3.5rem, 7vh, 5rem) !important;
 }
 
 /* Subtle gradient - Smooth Transition */
@@ -354,9 +364,9 @@ header .main-menu .logo {
 
 header .main-menu .logo svg {
   display: block;
-  height: 3rem;
+  height: 3.8rem;
   width: auto;
-  max-width: min(60vw, 16rem);
+  max-width: min(70vw, 20rem);
 }
 
 /* ============================================
@@ -386,6 +396,20 @@ header .main-menu .logo svg {
    Responsive
    ============================================ */
 @media (max-width: 768px) {
+  .hero-linear {
+    min-height: clamp(30rem, 78vh, 40rem);
+    align-items: flex-start;
+  }
+
+  .hero-linear > .relative {
+    padding-top: 5.5rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  .hero-linear + .content-section {
+    padding-top: 3rem !important;
+  }
+
   .linear-headline {
     font-size: 2rem !important;
   }
@@ -401,8 +425,8 @@ header .main-menu .logo svg {
   }
 
   header .main-menu .logo svg {
-    height: 2.4rem;
-    max-width: 12rem;
+    height: 3rem;
+    max-width: 14rem;
   }
 }
 
