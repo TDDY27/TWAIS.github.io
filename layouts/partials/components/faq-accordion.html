@@ -21,7 +21,7 @@
                             <span>{{ .question }}</span>
                             <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7" />
+                                    d="M12 6v12M6 12h12" />
                             </svg>
                         </summary>
                         <div class="faq-answer">
@@ -36,20 +36,20 @@
 
         <style>
             .faq-item {
-                border: 1px solid rgba(255, 255, 255, 0.1);
+                border: 1px solid var(--linear-border-subtle);
                 border-radius: 12px;
-                background-color: rgba(255, 255, 255, 0.02);
+                background-color: var(--linear-bg-card);
                 transition: all 0.2s ease;
             }
 
             .faq-item:hover {
-                border-color: rgba(255, 255, 255, 0.15);
-                background-color: rgba(255, 255, 255, 0.03);
+                border-color: var(--linear-border-strong);
+                background-color: var(--linear-overlay-soft);
             }
 
             .faq-item[open] {
-                border-color: rgba(96, 165, 250, 0.3);
-                background-color: rgba(96, 165, 250, 0.05);
+                border-color: var(--linear-accent-blue);
+                background-color: var(--linear-overlay-soft);
             }
 
             .faq-question {
@@ -60,7 +60,7 @@
                 cursor: pointer;
                 font-size: 1.125rem;
                 font-weight: 500;
-                color: #fff;
+                color: var(--linear-text-bright);
                 list-style: none;
             }
 
@@ -71,18 +71,18 @@
             .faq-icon {
                 width: 1.25rem;
                 height: 1.25rem;
-                color: #9CA3AF;
+                color: var(--linear-muted);
                 transition: transform 0.2s ease;
                 flex-shrink: 0;
             }
 
             .faq-item[open] .faq-icon {
-                transform: rotate(180deg);
+                transform: rotate(45deg);
             }
 
             .faq-answer {
                 padding: 0 1.5rem 1.25rem 1.5rem;
-                color: #9CA3AF;
+                color: var(--linear-text);
                 line-height: 1.75;
             }
 
@@ -101,7 +101,12 @@
             }
 
             .faq-answer strong {
-                color: #E5E7EB;
+                color: var(--linear-text-bright);
+                font-weight: 600;
+            }
+
+            .faq-answer a {
+                color: var(--linear-accent-blue);
             }
 
             .faq-answer ol {
