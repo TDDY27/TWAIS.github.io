@@ -233,10 +233,10 @@ body {
    ============================================ */
 .feature-card {
   background-color: var(--linear-bg-card);
-  border-radius: 24px;
-  padding: 2rem;
+  border-radius: var(--border-radius-xl);
+  padding: var(--spacing-lg);
   border: 1px solid var(--linear-border-subtle);
-  transition: all 0.3s ease;
+  transition: all var(--transition-normal);
 }
 
 .feature-card:hover {
@@ -275,7 +275,7 @@ body {
 .perspective-visual {
   transform: rotateX(15deg) rotateY(-5deg);
   transform-origin: center center;
-  border-radius: 16px;
+  border-radius: var(--border-radius-lg);
   box-shadow:
     0 25px 50px -12px var(--linear-shadow-heavy),
     0 0 80px var(--linear-glow-blue);
@@ -430,7 +430,7 @@ header .main-menu .logo svg {
   }
 
   .feature-card {
-    padding: 1.5rem;
+    padding: var(--spacing-md);
     border-radius: 20px;
   }
 
@@ -988,7 +988,7 @@ footer,
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
+  gap: var(--spacing-lg);
   align-items: center;
 }
 
@@ -996,9 +996,9 @@ footer,
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--spacing-sm);
   opacity: 0.85;
-  transition: opacity 0.3s ease;
+  transition: opacity var(--transition-normal);
 }
 
 .logo-item:hover {
@@ -1009,14 +1009,14 @@ footer,
   width: 48px;
   height: 48px;
   color: var(--linear-subtext);
-  transition: color 0.3s ease;
+  transition: color var(--transition-normal);
 }
 
 .logo-img {
   width: 64px;
   height: 64px;
   object-fit: contain;
-  border-radius: 8px;
+  border-radius: var(--border-radius-sm);
 }
 
 .logo-item:hover .logo-svg {
@@ -1031,7 +1031,7 @@ footer,
 
 .logo-item--placeholder {
   border: 2px dashed var(--linear-border-subtle);
-  border-radius: 12px;
+  border-radius: var(--border-radius-md);
   padding: 1rem 1.5rem;
   opacity: 0.3;
 }
