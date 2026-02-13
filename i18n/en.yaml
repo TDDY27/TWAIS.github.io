@@ -29,3 +29,24 @@
 # Collaborators Section
 - id: collaborators_heading
   translation: "Our Collaborators"
+
+- id: collaborators_label
+  translation: "Collaborated with"
+
+# Card/Component Text
+- id: card_learn_more
+  translation: "Learn More"
+
+# Event Badge Labels
+- id: event_badge_upcoming
+  translation: "Upcoming"
+
+- id: event_badge_past
+  translation: "Completed"
+
+# Placeholder Text
+- id: events_coming_soon
+  translation: "More events coming soon."
+
+- id: events_discord_prompt
+  translation: "Join our Discord to stay updated."

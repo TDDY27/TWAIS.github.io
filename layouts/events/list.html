@@ -28,7 +28,7 @@
                 {{ range $upcoming.ByDate.Reverse }}
                 <article class="card-base event-card event-card--upcoming">
                     <div class="event-card-content">
-                        <span class="event-badge event-badge--upcoming">Upcoming</span>
+                        <span class="event-badge event-badge--upcoming">{{ i18n "event_badge_upcoming" }}</span>
                         <h3 class="event-card-title">
                             <a href="{{ .Permalink }}">{{ .Title }}</a>
                         </h3>
@@ -51,7 +51,7 @@
                 {{ range $past.ByDate.Reverse }}
                 <article class="card-base event-card event-card--past">
                     <div class="event-card-content">
-                        <span class="event-badge event-badge--past">Completed</span>
+                        <span class="event-badge event-badge--past">{{ i18n "event_badge_past" }}</span>
                         <h3 class="event-card-title">
                             <a href="{{ .Permalink }}">{{ .Title }}</a>
                         </h3>

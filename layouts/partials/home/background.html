@@ -131,8 +131,8 @@
       {{ else }}
       {{/* Fallback if no upcoming events */}}
       <div class="col-span-1 md:col-span-2 text-center py-12 border border-neutral-800 rounded-2xl bg-[#0d1117]/50">
-        <p class="text-neutral-400 text-lg">More events coming soon.</p>
-        <p class="text-neutral-500 text-sm mt-2">Join our Discord to stay updated.</p>
+        <p class="text-neutral-400 text-lg">{{ i18n "events_coming_soon" }}</p>
+        <p class="text-neutral-500 text-sm mt-2">{{ i18n "events_discord_prompt" }}</p>
       </div>
       {{ end }}
     </div>
@@ -146,7 +146,7 @@
 
     {{/* Collaborators */}}
     <div class="mb-16">
-      <p class="logo-wall-label">Collaborated with</p>
+      <p class="logo-wall-label">{{ i18n "collaborators_label" }}</p>
       <div class="logo-wall">
         <div class="logo-item" style="display:flex; justify-content:center; align-items:center;">
           <img class="logo-img nozoom" src="{{ `img/members/ntu_logo.png` | absURL }}" alt="National Taiwan University"
