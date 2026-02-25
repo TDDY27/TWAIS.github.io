@@ -1,4 +1,6 @@
 ---
+import logoSrc from '../assets/branding/ntuais-logo.svg?url';
+
 const base = import.meta.env.BASE_URL;
 
 const navLinks = [
@@ -12,7 +14,7 @@ const navLinks = [
 <header class="site-header">
   <div class="header-inner container">
     <a href={base} class="site-logo">
-      <img src={`${base}img/branding/ntuais-logo.svg`} alt="NTUAIS" width="32" height="32" />
+      <img src={logoSrc} alt="NTUAIS" width="32" height="32" />
       <span>NTUAIS</span>
     </a>
 

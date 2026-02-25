@@ -1,3 +1,5 @@
+.claude/
+
 # Astro build output
 /dist/
 .astro/
