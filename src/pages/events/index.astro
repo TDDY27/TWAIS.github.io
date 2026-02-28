@@ -1,25 +1,38 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import { getEventStatus, startOfToday } from '../../lib/eventStatus';
+import { getImage } from 'astro:assets';
+import heroBgRaw from '../../assets/backgrounds/hero-background.jpg';
 
 const base = import.meta.env.BASE_URL;
+const heroBg = await getImage({ src: heroBgRaw, width: 3000, height: 600, format: 'webp', quality: 85, fit: 'cover' });
 
 const allEvents = await getCollection('events');
-const today = new Date();
-today.setHours(0, 0, 0, 0); // start of today in local time, so events dated today stay upcoming
+const today = startOfToday();
 
 const upcoming = allEvents
-  .filter(e => new Date(e.data.date) >= today)
-  .sort((a, b) => new Date(a.data.date).getTime() - new Date(b.data.date).getTime());
+  .filter(e => getEventStatus(e.data.date, e.data.endDate, today) === 'upcoming')
+  .sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
+
+const running = allEvents
+  .filter(e => getEventStatus(e.data.date, e.data.endDate, today) === 'running')
+  .sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
 
 const past = allEvents
-  .filter(e => new Date(e.data.date) < today)
-  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+  .filter(e => getEventStatus(e.data.date, e.data.endDate, today) === 'past')
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+function formatDateRange(startDate: Date, endDate?: Date) {
+  const fmt = (d: Date) => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  return endDate ? `${fmt(startDate)} – ${fmt(endDate)}` : fmt(startDate);
+}
 ---
 
 <BaseLayout title="Events" description="NTUAIS programs, reading groups, fellowships, and workshops on AI safety.">
 
   <section class="page-hero">
+    <div class="page-hero-bg" style={`background-image: url('${heroBg.src}')`} aria-hidden="true"></div>
     <div class="container">
       <span class="section-badge">Programs &amp; Events</span>
       <h1>Our Events</h1>
@@ -30,19 +43,23 @@ const past = allEvents
     </div>
   </section>
 
-  {upcoming.length > 0 && (
-    <section class="events-section">
+  <!-- Running now -->
+  {running.length > 0 && (
+    <section class="events-section events-section--running">
       <div class="container">
-        <h2 class="events-section-title">Upcoming</h2>
+        <h2 class="events-section-title">
+          <span class="running-dot" aria-hidden="true"></span>
+          Running Now
+        </h2>
         <div class="events-list">
-          {upcoming.map(event => (
+          {running.map(event => (
             <a href={`${base}events/${event.slug}/`} class="card-linear event-row">
               <div class="event-row-meta">
                 <span class={`section-badge section-badge--${event.data.badge_color ?? 'green'}`}>
                   {event.data.badge ?? 'Event'}
                 </span>
                 <time datetime={event.data.date.toISOString()}>
-                  {event.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                  {formatDateRange(event.data.date, event.data.endDate)}
                 </time>
               </div>
               <div class="event-row-body">
@@ -57,6 +74,35 @@ const past = allEvents
     </section>
   )}
 
+  <!-- Upcoming -->
+  {upcoming.length > 0 && (
+    <section class="events-section">
+      <div class="container">
+        <h2 class="events-section-title">Upcoming</h2>
+        <div class="events-list">
+          {upcoming.map(event => (
+            <a href={`${base}events/${event.slug}/`} class="card-linear event-row">
+              <div class="event-row-meta">
+                <span class={`section-badge section-badge--${event.data.badge_color ?? 'green'}`}>
+                  {event.data.badge ?? 'Event'}
+                </span>
+                <time datetime={event.data.date.toISOString()}>
+                  {formatDateRange(event.data.date, event.data.endDate)}
+                </time>
+              </div>
+              <div class="event-row-body">
+                <h3>{event.data.title}</h3>
+                <p>{event.data.description}</p>
+              </div>
+              <span class="event-row-arrow" aria-hidden="true">→</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Past -->
   {past.length > 0 && (
     <section class="events-section events-section--past">
       <div class="container">
@@ -67,7 +113,7 @@ const past = allEvents
               <div class="event-row-meta">
                 <span class="section-badge">Past</span>
                 <time datetime={event.data.date.toISOString()}>
-                  {event.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                  {formatDateRange(event.data.date, event.data.endDate)}
                 </time>
               </div>
               <div class="event-row-body">
@@ -101,18 +147,29 @@ const past = allEvents
   .page-hero h1 {
     font-size: clamp(1.75rem, 4vw, 3rem);
     font-weight: 700;
-    color: var(--linear-text-bright);
+    color: #F7FAF9;
     margin: 0.75rem 0 0.75rem;
   }
 
   .page-hero p {
-    color: var(--linear-subtext);
+    color: rgba(247, 250, 249, 0.8);
     max-width: 560px;
     font-size: 1.05rem;
   }
 
+  .page-hero .section-badge {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+    color: rgba(247, 250, 249, 0.9);
+  }
+
   .events-section {
     padding: 3rem 0;
+  }
+
+  .events-section--running {
+    background: var(--linear-status-upcoming-bg);
+    border-bottom: 1px solid rgba(45, 122, 103, 0.2);
   }
 
   .events-section--past {
@@ -120,10 +177,28 @@ const past = allEvents
   }
 
   .events-section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
     font-size: 1.25rem;
     font-weight: 600;
     color: var(--linear-text-bright);
     margin-bottom: 1.25rem;
+  }
+
+  /* Pulsing green dot for "Running Now" */
+  .running-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--linear-accent-green);
+    animation: pulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(0.85); }
   }
 
   .events-list {
@@ -134,7 +209,7 @@ const past = allEvents
 
   .event-row {
     display: grid;
-    grid-template-columns: 180px 1fr auto;
+    grid-template-columns: 200px 1fr auto;
     align-items: center;
     gap: 1.5rem;
     text-decoration: none;
@@ -152,7 +227,7 @@ const past = allEvents
   }
 
   .event-row-meta time {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--linear-muted);
   }
 

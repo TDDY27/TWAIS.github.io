@@ -19,17 +19,17 @@ const heroBg = await getImage({
 const missionCards = [
   {
     title: 'Our Mission',
-    description: 'To build a strong AI safety research and education community in Taiwan — training the next generation of safety researchers and connecting them to the global effort to solve alignment, interpretability, and governance challenges.',
+    description: "To help more people in Taiwan learn about AI safety, raise awareness across industry, and discover potential talent — supporting them in doing research abroad and bringing that knowledge back to make Taiwan's AI safety community stronger.",
     icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
   },
   {
     title: 'Our Vision',
-    description: 'A Taiwan where AI safety is recognized as a critical priority — with a pipeline of informed researchers, policy thinkers, and engineers equipped to contribute to the global challenge of making advanced AI systems safe.',
+    description: 'Taiwan can play a key part in AI safety, especially with its strong hardware industry and deep experience in the AI supply chain. We aim to not only strengthen AI safety within Taiwan but also contribute our knowledge and experience to the global effort of making AI systems safer for everyone.',
     icon: 'M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z',
   },
   {
     title: 'Our Approach',
-    description: 'We combine structured curricula — covering technical alignment, mechanistic interpretability, scalable oversight, and AI governance — with community-driven discussion and mentorship from experienced researchers.',
+    description: 'We bring people together through reading groups, workshops, and talks — creating a space to share knowledge, find opportunities, and collaborate. Our goal is to grow a community that produces real research, develops talent, and drives progress in AI safety.',
     icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z',
   },
 ];
@@ -85,11 +85,8 @@ const faq = [
 
   <!-- Hero -->
   <section class="about-hero">
-    <!-- <div 
-      class="about-hero-bg"
-      style={`background-image: url('${heroBg.src}')`}
-    ></div>  -->
-    <div class="container" >
+    <div class="about-hero-bg" style={`background-image: url('${heroBg.src}')`} aria-hidden="true"></div>
+    <div class="container">
       <span class="section-badge">About Us</span>
       <h1>Building Taiwan's AI Safety Community</h1>
       <p>
@@ -211,32 +208,65 @@ const faq = [
 
 <style>
   .about-hero {
-    /* position : relative; */
+    position: relative;
+    overflow: hidden;
     padding: 5rem 0 3.5rem;
     border-bottom: 1px solid var(--linear-border-subtle);
   }
 
+  .about-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(8, 28, 22, 0.45);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .about-hero .container {
+    position: relative;
+    z-index: 1;
+  }
+
   .about-hero-bg {
+    position: absolute;
     inset: 0;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0.5;
   }
-  
+
+  .about-hero .section-badge {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+    color: rgba(247, 250, 249, 0.9);
+  }
+
   .about-hero h1 {
     font-size: clamp(1.75rem, 4vw, 3rem);
     font-weight: 700;
-    color: var(--linear-text-bright);
+    color: #F7FAF9;
     margin: 0.75rem 0 1rem;
     max-width: 700px;
   }
 
   .about-hero p {
-    color: var(--linear-subtext);
+    color: rgba(247, 250, 249, 0.8);
     max-width: 620px;
     font-size: 1.05rem;
     margin-bottom: 2rem;
+  }
+
+  .about-hero .btn-linear-secondary {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.35);
+    color: #F7FAF9;
+  }
+
+  .about-hero .btn-linear-secondary:hover {
+    background: rgba(255, 255, 255, 0.25);
+    color: #F7FAF9;
   }
 
   .hero-cta-group {

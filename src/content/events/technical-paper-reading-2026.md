@@ -2,7 +2,8 @@
 title: "Technical Paper Reading 2026"
 description: "Weekly sessions to discuss the latest AI Safety research papers"
 summary: "Stay current with cutting-edge AI safety research through guided paper discussions."
-date: 2026-02-28
+date: 2026-03-09
+endDate: 2026-06-01
 tags: ["technical", "research", "papers", "upcoming"]
 badge: "Advanced"
 badge_color: "purple"

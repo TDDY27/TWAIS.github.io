@@ -1,8 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import { getImage } from 'astro:assets';
+import heroBgRaw from '../../assets/backgrounds/hero-background.jpg';
 
 const base = import.meta.env.BASE_URL;
+const heroBg = await getImage({ src: heroBgRaw, width: 3000, height: 600, format: 'webp', quality: 85, fit: 'cover' });
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
@@ -11,6 +14,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
 <BaseLayout title="Blog" description="Articles and course notes from the NTUAIS community on AI safety, alignment, and interpretability.">
 
   <section class="page-hero">
+    <div class="page-hero-bg" style={`background-image: url('${heroBg.src}')`} aria-hidden="true"></div>
     <div class="container">
       <span class="section-badge">Blog</span>
       <h1>Writing</h1>
@@ -54,14 +58,20 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .page-hero h1 {
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 700;
-    color: var(--linear-text-bright);
+    color: #F7FAF9;
     margin: 0.75rem 0 0.5rem;
   }
 
   .page-hero p {
-    color: var(--linear-subtext);
+    color: rgba(247, 250, 249, 0.8);
     font-size: 1.05rem;
     max-width: 560px;
+  }
+
+  .page-hero .section-badge {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+    color: rgba(247, 250, 249, 0.9);
   }
 
   .posts-section {

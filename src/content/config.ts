@@ -7,6 +7,7 @@ const events = defineCollection({
     description: z.string(),
     summary: z.string().optional(),
     date: z.coerce.date(),
+    endDate: z.coerce.date().optional(),
     tags: z.array(z.string()).optional().default([]),
     badge: z.string().optional(),
     badge_color: z.string().optional().default('green'),
@@ -29,14 +30,13 @@ const blog = defineCollection({
 
 const team = defineCollection({
   type: 'content',
-  schema: ({ image }) => z.object({
+  schema: z.object({
     title: z.string(),
     description: z.string().optional(),
     summary: z.string().optional(),
-    role: z.enum(['organizer', 'mentor']),
+    role: z.enum(['organizer', 'mentor', 'founder']),
     weight: z.number().optional().default(99),
     draft: z.boolean().optional().default(false),
-    image: image().optional(),
     social: z.array(z.record(z.string())).optional().default([]),
   }),
 });
