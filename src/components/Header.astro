@@ -4,18 +4,18 @@ import logoSrc from '../assets/branding/ntuais-logo.png?url';
 const base = import.meta.env.BASE_URL;
 
 const navLinks = [
-  { label: 'About', href: 'about/' },
+  { label: 'About',  href: 'about/'  },
   { label: 'Events', href: 'events/' },
-  { label: 'Blog', href: 'blog/' },
-  { label: 'Team', href: 'team/' },
+  { label: 'Blog',   href: 'blog/'   },
+  { label: 'Team',   href: 'team/'   },
 ];
 ---
 
 <header class="site-header">
   <div class="header-inner container">
+
     <a href={base} class="site-logo">
-      <img src={logoSrc} alt="NTUAIS" width="250" height="250" />
-      <!-- <span>NTUAIS</span> -->
+      <img src={logoSrc} alt="NTUAIS" width="40" height="40" />
     </a>
 
     <nav class="site-nav" aria-label="Main navigation">
@@ -32,8 +32,49 @@ const navLinks = [
     >
       Join Discord
     </a>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    {navLinks.map(link => (
+      <a href={`${base}${link.href}`} class="mobile-nav-link">{link.label}</a>
+    ))}
+    <a
+      href="https://discord.gg/MqYwhbY6tv"
+      class="btn-linear btn-linear-primary mobile-cta"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Join Discord
+    </a>
   </div>
 </header>
+
+<script>
+  const btn = document.getElementById('hamburger')!;
+  const nav = document.getElementById('mobile-nav')!;
+
+  btn.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    nav.classList.toggle('is-open', !open);
+    nav.setAttribute('aria-hidden', String(open));
+  });
+
+  nav.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => {
+      btn.setAttribute('aria-expanded', 'false');
+      nav.classList.remove('is-open');
+      nav.setAttribute('aria-hidden', 'true');
+    })
+  );
+</script>
 
 <style>
   .site-header {
@@ -49,23 +90,21 @@ const navLinks = [
   .header-inner {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    justify-content: space-between;
     height: 64px;
+    gap: 1.5rem;
   }
 
   .site-logo {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-weight: 600;
-    font-size: 1rem;
-    color: var(--linear-text-bright);
-    text-decoration: none;
     flex-shrink: 0;
+    text-decoration: none;
   }
 
-  .site-logo:hover {
-    color: var(--linear-text-bright);
+  .site-logo img {
+    height: 40px;
+    width: auto;
   }
 
   .site-nav {
@@ -82,6 +121,7 @@ const navLinks = [
     font-weight: 500;
     color: var(--linear-subtext);
     text-decoration: none;
+    white-space: nowrap;
     transition: color var(--transition-fast), background var(--transition-fast);
   }
 
@@ -92,11 +132,89 @@ const navLinks = [
 
   .header-cta {
     flex-shrink: 0;
+    white-space: nowrap;
   }
 
-  @media (max-width: 640px) {
-    .site-nav {
+  /* Hamburger — hidden on desktop */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .hamburger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: var(--linear-text);
+    border-radius: 2px;
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
+  }
+
+  .hamburger[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .hamburger[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Mobile drawer — always hidden on desktop regardless of JS state */
+  .mobile-nav {
+    display: none;
+  }
+
+  .mobile-nav-link {
+    padding: 0.625rem 0.75rem;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.975rem;
+    font-weight: 500;
+    color: var(--linear-text);
+    text-decoration: none;
+    transition: background var(--transition-fast);
+  }
+
+  .mobile-nav-link:hover {
+    background: var(--linear-overlay-soft);
+    color: var(--linear-text);
+  }
+
+  .mobile-cta {
+    margin-top: 0.5rem;
+    align-self: flex-start;
+  }
+
+  /* ── Mobile: ≤768px ── */
+  @media (max-width: 768px) {
+    .site-nav,
+    .header-cta {
       display: none;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    /* Only show drawer here — so resizing to desktop auto-hides it */
+    .mobile-nav.is-open {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      padding: 0.75rem 1.5rem 1rem;
+      border-top: 1px solid var(--linear-border-subtle);
+      background: var(--linear-nav-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
   }
 </style>
