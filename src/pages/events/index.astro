@@ -6,6 +6,7 @@ const base = import.meta.env.BASE_URL;
 
 const allEvents = await getCollection('events');
 const today = new Date();
+today.setHours(0, 0, 0, 0); // start of today in local time, so events dated today stay upcoming
 
 const upcoming = allEvents
   .filter(e => new Date(e.data.date) >= today)
