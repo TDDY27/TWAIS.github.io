@@ -253,3 +253,35 @@ a:hover {
   box-shadow: 0 8px 32px var(--linear-shadow-heavy);
   border-color: var(--linear-border-strong);
 }
+
+/* ============================================
+   Page Hero (shared across inner pages)
+   ============================================ */
+.page-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+}
+
+/* Dark scrim between image and content for text legibility */
+.page-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 28, 22, 0.45);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.page-hero .container {
+  position: relative;
+  z-index: 1;
+}

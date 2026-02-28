@@ -3,6 +3,7 @@ title: "BlueDot Fellowship 2024"
 description: "First cohort of our ten-week introductory program"
 summary: "Our inaugural BlueDot Fellowship, introducing participants to AI Safety fundamentals."
 date: 2023-09-01
+endDate: 2023-11-30
 tags: ["fellowship", "introductory", "bluedot", "past"]
 ---
 

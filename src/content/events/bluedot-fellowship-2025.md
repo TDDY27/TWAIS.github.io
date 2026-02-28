@@ -3,6 +3,7 @@ title: "BlueDot Fellowship 2025"
 description: "Second cohort of our ten-week introductory program"
 summary: "Expanded BlueDot Fellowship with more participants and refined curriculum."
 date: 2024-09-01
+endDate: 2024-11-30
 tags: ["fellowship", "introductory", "bluedot", "past"]
 ---
 

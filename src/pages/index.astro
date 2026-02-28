@@ -1,8 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import { getImage } from 'astro:assets';
+import { getImage, Image } from 'astro:assets';
+import { isActiveEvent, startOfToday } from '../lib/eventStatus';
 import heroBgRaw from '../assets/backgrounds/hero-background.jpg';
+import ntuLogo from '../assets/members/ntu_logo.png';
+import aicoeLogo from '../assets/members/AICoE_logo.png';
 
 const base = import.meta.env.BASE_URL;
 
@@ -16,12 +19,17 @@ const heroBg = await getImage({
   fit: 'cover',   // crop to fill the box exactly
 });
 
-// Get upcoming events (date >= today)
+const collaborators = [
+  { name: 'National Taiwan University', logo: ntuLogo, url: 'https://www.ntu.edu.tw/' },
+  { name: 'AICoE', logo: aicoeLogo, url: 'https://www.aicoe.org/' },
+];
+
+// Show events that haven't finished yet (upcoming + running), sorted soonest first
 const allEvents = await getCollection('events');
-const today = new Date();
+const today = startOfToday();
 const upcomingEvents = allEvents
-  .filter(e => new Date(e.data.date) >= today)
-  .sort((a, b) => new Date(a.data.date).getTime() - new Date(b.data.date).getTime())
+  .filter(e => isActiveEvent(e.data.date, e.data.endDate, today))
+  .sort((a, b) => a.data.date.getTime() - b.data.date.getTime())
   .slice(0, 3);
 ---
 
@@ -33,7 +41,7 @@ const upcomingEvents = allEvents
     <div class="hero-bg" style={`background-image: url('${heroBg.src}')`} aria-hidden="true"></div>
     <div class="hero-linear-overlay" aria-hidden="true"></div>
     <div class="hero-linear-inner">
-      <!-- <p class="section-badge">NTU AI Safety</p> -->
+      <p class="hero-subtitle">NTU AI Safety</p>
       <h1>
         <span class="hero-title">Shaping the Future of</span><br />
         <span class="hero-accent">AI Safety</span>
@@ -46,9 +54,9 @@ const upcomingEvents = allEvents
         <a href="https://discord.gg/MqYwhbY6tv" class="btn-linear btn-linear-primary" target="_blank" rel="noopener noreferrer">
           Join Community
         </a>
-        <!-- <a href={`${base}events/`} class="btn-linear btn-linear-secondary">
+        <a href={`${base}events/`} class="btn-linear btn-linear-secondary">
           View Events
-        </a> -->
+        </a>
       </div>
     </div>
   </section>
@@ -116,6 +124,20 @@ const upcomingEvents = allEvents
     </div>
   </section>
 
+  <!-- Collaborators -->
+  <section class="section-collaborators">
+    <div class="container">
+      <p class="collab-label">Collaborated with</p>
+      <div class="collab-logos">
+        {collaborators.map(c => (
+          <a href={c.url} class="collab-item" target="_blank" rel="noopener noreferrer" aria-label={c.name}>
+            <Image src={c.logo} alt={c.name} height={48} width={120} class="collab-logo" />
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
 </BaseLayout>
 
 <style>
@@ -134,6 +156,26 @@ const upcomingEvents = allEvents
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(247, 250, 249, 0.6);
+    margin-bottom: 1rem;
+  }
+
+  .hero-cta-group .btn-linear-secondary {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.35);
+    color: #F7FAF9;
+  }
+
+  .hero-cta-group .btn-linear-secondary:hover {
+    background: rgba(255, 255, 255, 0.25);
+    color: #F7FAF9;
   }
 
   /* Events */
@@ -246,6 +288,41 @@ const upcomingEvents = allEvents
   .stat-label {
     font-size: 0.875rem;
     color: var(--linear-subtext);
+  }
+
+  /* Collaborators */
+  .section-collaborators {
+    padding: 3rem 0;
+    border-top: 1px solid var(--linear-border-subtle);
+  }
+
+  .collab-label {
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--linear-muted);
+    margin-bottom: 1.75rem;
+  }
+
+  .collab-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .collab-item {
+    display: flex;
+    align-items: center;
+  }
+
+  .collab-logo {
+    height: 72px;
+    width: auto;
+    object-fit: contain;
   }
 
   @media (max-width: 768px) {
